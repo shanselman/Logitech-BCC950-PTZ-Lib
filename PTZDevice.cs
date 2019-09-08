@@ -107,7 +107,7 @@ namespace PTZ
                instData, Marshal.SizeOf(control.Instance), controlData, Marshal.SizeOf(control));
 
             //TODO: It's a DC motor, no better way?
-            Thread.Sleep(20);
+            Thread.Sleep(axis == KSProperties.CameraControlFeature.KSPROPERTY_CAMERACONTROL_TILT_RELATIVE ? 50 : 20); // Tilt needs longer to move
 
             control.Instance.Value = 0; //STOP!
             control.Instance.Flags = (int)CameraControlFlags.Relative;
